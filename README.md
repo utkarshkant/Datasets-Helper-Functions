@@ -1,2 +1,2 @@
 # Datasets
-A Collection of Datasets
+A collection of datasets
