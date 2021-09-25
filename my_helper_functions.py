@@ -1,8 +1,5 @@
 # UDF for shape and size of data
 def get_df_shape(data=df):
-  """
-  Represents the shape of a dataset in a more clear format.
-  """  
   print(f"# rows: {data.shape[0]}")
   print(f"# cols: {data.shape[1]}")
 
