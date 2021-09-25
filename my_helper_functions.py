@@ -1,10 +1,10 @@
 # UDF for shape and size of data
-def get_shape(df):
+def get_df_shape(data=df):
   """
   Represents the shape of a dataset in a more clear format.
-  """
-  print(f"# rows: {df.shape[0]})
-  print(f"# cols: {df.shape[1]})
+  """  
+  print(f"# rows: {data.shape[0]}")
+  print(f"# cols: {data.shape[1]}")
 
 # UDF for Augmented Dickey Fuller Test
 
