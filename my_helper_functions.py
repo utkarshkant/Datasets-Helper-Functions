@@ -1,9 +1,9 @@
-# UDF for shape and size of data
-import pandas as pd
+# # UDF for shape and size of data
+# import pandas as pd
 
-def get_df_shape(data):
-  print(f"# rows: {data.shape[0]}")
-  print(f"# cols: {data.shape[1]}")
+# def get_df_shape(data):
+#   print(f"# rows: {data.shape[0]}")
+#   print(f"# cols: {data.shape[1]}")
 
 # UDF for Augmented Dickey Fuller Test
 
