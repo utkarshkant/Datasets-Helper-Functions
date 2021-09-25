@@ -1,5 +1,5 @@
 # UDF for shape and size of data
-def get_df_shape(data=df):
+def get_df_shape(data):
   print(f"# rows: {data.shape[0]}")
   print(f"# cols: {data.shape[1]}")
 
