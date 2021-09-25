@@ -15,7 +15,7 @@ def adf_tester(series):
   """
   adf_result = adfuller(series.dropna(), autolag="AIC")
 
-  if adf_result[2] <= 0.05:
+  if adf_result[1] <= 0.05:
     print(f"p-value: {adf_result[1]}")
     print("Result: Data is Stationary!")
   else:
