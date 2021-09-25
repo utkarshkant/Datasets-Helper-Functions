@@ -1,9 +1,9 @@
-# # UDF for shape and size of data
-# def get_df_shape(data=df):
-#   print(f"# rows: {data.shape[0]}")
-#   print(f"# cols: {data.shape[1]}")
+# UDF for shape and size of data
+def get_df_shape(data=df):
+  print(f"# rows: {data.shape[0]}")
+  print(f"# cols: {data.shape[1]}")
 
-# UDF for Augmented Dickey Fuller Test
+UDF for Augmented Dickey Fuller Test
 
 from statsmodels.tsa.stattools import adfuller
 
