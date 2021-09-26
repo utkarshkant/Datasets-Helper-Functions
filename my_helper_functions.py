@@ -21,3 +21,26 @@ def adf_tester(series):
   else:
     print(f"p-value: {adf_result[1]}")
     print("Data is NOT Stationary!")
+
+############################################
+
+# KPSS Test for Stationarity
+def kpss_tester(series,regression='c'):
+  """
+  Determines whether the given time series is stationary or not.
+  
+  Parameters:
+  - series: Pandas series (1-d array). The time series that is to be tested
+  - regression : str{"c", "ct"}
+    The null hypothesis for the KPSS test.
+      "c" : The data is stationary around a constant (default).
+      "ct" : The data is stationary around a trend.
+  """
+  kpss_result = kpss(series.dropna(), regression=regression)
+  
+  if kpss_result[1] <= 0.05:
+    print(f"p-value: {kpss_result[1]}")
+    print("Result: Data is Not Stationary")
+  else:
+    print(f"p-value: {kpss_result[1]}")
+    print("Result: Data is Stationary")
