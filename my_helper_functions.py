@@ -24,7 +24,10 @@ def adf_tester(series):
 
 ############################################
 
-# KPSS Test for Stationarity
+# UDF for KPSS Test for Stationarity
+
+from statsmodels.tsa.stattools import kpss
+
 def kpss_tester(series,regression='c'):
   """
   Determines whether the given time series is stationary or not.
