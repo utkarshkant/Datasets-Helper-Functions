@@ -5,24 +5,34 @@
 #   print(f"# rows: {data.shape[0]}")
 #   print(f"# cols: {data.shape[1]}")
 
-# UDF for Augmented Dickey Fuller Test
+###############################################################################################################
 
+# UDF for ADF Test
+import pandas as pd
+import numpy as np
 from statsmodels.tsa.stattools import adfuller
 
-def adf_tester(series):
-  """
-  Determines whether the given time series is stationary or not.
-  """
-  adf_result = adfuller(series.dropna(), autolag="AIC")
+def adf_tester(series, alpha=0.05):
+    """
+    Determines whether the given time series is stationary or not.
 
-  if adf_result[1] <= 0.05:
-    print(f"p-value: {adf_result[1]}")
-    print("Result: Data is Stationary!")
-  else:
-    print(f"p-value: {adf_result[1]}")
-    print("Data is NOT Stationary!")
+    Parameter
+    - `series`: Time series under test.
+    - `alpha`: significant value for p-value test. Default as 0.05.
+    """
+    adf_results = adfuller(series.dropna())
 
-############################################
+    print(f"ADF Test Statistic: {adf_results[0]}")
+    print(f"p-value: {adf_results[1]}")
+    print(f"Significant Value: {alpha}\n")
+    if adf_results[1] <= alpha:
+        print("No unit root was detected in the time series.")
+        print("|| Data is Stationary ||")
+    else:
+        print("Unit root has been detected in the time series.")
+        print("|| Data is Not Stationary ||")
+
+###############################################################################################################
 
 # UDF for KPSS Test for Stationarity
 
