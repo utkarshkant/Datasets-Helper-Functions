@@ -40,6 +40,7 @@ def adf_tester(series, alpha=0.05):
     - `series`: Time series under test.
     - `alpha`: significant value for p-value test. Default as 0.05.
     """
+    series = pd.Series(series)
     adf_results = adfuller(series.dropna())
 
     print(f"ADF Test Statistic: {adf_results[0]}")
