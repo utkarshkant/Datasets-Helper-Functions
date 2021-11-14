@@ -7,6 +7,26 @@
 
 ###############################################################################################################
 
+# UDF to plot acf & pacf as subplots
+import matplotlib.pyplot as plt
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+
+def plot_acf_pacf(y, lags=30, zero=False, figsize=(15,6)):
+    """
+    Plots the ACF and PACF plots together in a subplot.
+
+    Parameters:
+    - `y`: The time series for which you want to plot the ACF & PACF correlograms.
+    - `lags`: Number of lags that you wish to plot. Default is `30`.
+    - `zero`: Default is set to `False`, that removes the correlation at lag=0. Assign `True` to plot correlation at lag=0.
+    - `figsize`: Plot size. Default is set to `(15,6)`.
+    """
+    fig, ax = plt.subplots(nrows=1, ncols=2, figsize=figsize)
+    plot_acf(y, zero=zero, auto_ylims=True, lags=lags, ax=ax[0]);
+    plot_pacf(y, zero=zero, auto_ylims=True, lags=lags, ax=ax[1]);
+
+###############################################################################################################
+
 # UDF for ADF Test
 import pandas as pd
 import numpy as np
