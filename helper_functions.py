@@ -286,3 +286,22 @@ def calculate_results(y_true, y_pred):
                   "f1": model_f1}
   return model_results
 {"mode":"full","isActive":false}
+
+#################################################################################################################
+
+# standardize all strings in feature names and data records
+def standardize_text_records(df):
+    '''
+    This function will lower all string data in the feature names and data records
+    '''
+    
+    # standardize feature names
+    df.columns = df.columns.str.lower().str.replace(' ', '_')
+
+    # standardize string data records
+    str_features = df.dtypes[df.dtypes == 'object'].index
+
+    for feat in str_features:
+        df[feat] = df[feat].str.lower().str.replace(' ', '_')
+    
+    return df
