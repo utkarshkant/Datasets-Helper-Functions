@@ -289,19 +289,25 @@ def calculate_results(y_true, y_pred):
 
 #################################################################################################################
 
-# standardize all strings in feature names and data records
-def standardize_text_records(df):
+# standardize strings in data
+def standardize_text(df):
     '''
-    This function will lower all string data in the feature names and data records
+    This function will standardize all strings in a given dataset. 
+    
+    The following operations will be performed on both feature names and text records:
+    1. Remove all trailing and leading whitespaces
+    2. Lowercase all string data
+    3. Replace whitespace between two words in a record with underscore
     '''
     
     # standardize feature names
-    df.columns = df.columns.str.lower().str.replace(' ', '_')
+    df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_')
 
-    # standardize string data records
+    # all features with text data
     str_features = df.dtypes[df.dtypes == 'object'].index
 
+    # standardize string data records
     for feat in str_features:
-        df[feat] = df[feat].str.lower().str.replace(' ', '_')
+        df[feat] = df[feat].str.strip().str.lower().str.replace(' ', '_')
     
     return df
